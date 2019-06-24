@@ -1,4 +1,4 @@
-import {newdata,newdan,newmv,mvcont,dancont} from '../api/newdata'
+import {newdata,newdan,newmv,mvcont,dancont,search} from '../api/newdata'
 
 export const getnewdata=(payload)=> async dispatch=>{
     const result =await newdata();
@@ -29,7 +29,6 @@ export const newmvs=(payload)=>async dispatch=>{
 }
 export const mvtext=(num)=>async dispatch=>{
     const res= await mvcont(num);
-
     dispatch({
         type:'newmv',
         payload:{
@@ -44,6 +43,15 @@ export const danconts=(num)=>async dispatch=>{
         type:'newlist',
         payload:{
             list3:res.data,
+        }
+    })
+}
+export const searchs=(text)=> async dispatch=>{
+    const res=await search(text);
+    dispatch({
+        type:'search',
+        payload:{
+        searchdata:res.data
         }
     })
 }

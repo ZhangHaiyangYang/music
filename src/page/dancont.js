@@ -46,7 +46,8 @@ function Dancont(props) {
             </article>
             <div className="cont">
               <ul >
-               {list3.data?list3.data.tracks.map((res,index)=><li key={res.id} onClick={()=>{ localStorage.setItem('datas',JSON.stringify(list3.data.tracks));dispatch({type:'res',payload:{res:res}})}}><em>{index+1}</em><p className="name">{res.name}</p></li>):<Icon type="loading"/>}
+
+               {list3.data?list3.data.tracks.map((res,index)=>{ res={...res,al:{picUrl:res.album.picUrl}}; return(<li key={res.id} onClick={()=>{ localStorage.setItem('datas',JSON.stringify(list3.data.tracks));dispatch({type:'res',payload:{res:res}})}}><em>{index+1}</em><p className="name">{res.name}</p></li>)}):<Icon type="loading"/>}
               </ul>
             </div>
         </div>

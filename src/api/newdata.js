@@ -6,6 +6,9 @@ export const newdan=()=>get('netease/songList/highQuality?pageSize=9')
 export const newmv=()=>get('netease/mv/top?pageSize=9&page=0');
 export const mvcont=(num)=>get(`netease/mv?id=${num}`);
 export const dancont=(num)=>get(`netease/songList?id=${num}`);
+export const search=(text)=>get(`netease/search?keyword=${text}&type=song&pageSize=100&page=0`);
+
+
 
 
 

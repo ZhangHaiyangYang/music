@@ -4,6 +4,7 @@ import './App.css';
 import {HashRouter as Router,Route ,Switch} from 'react-router-dom'
 import Nav from './page/Nav'
 import routes from './route/index'
+import {Icon} from 'antd-mobile'
 function App(props) {
  const [flag_2,setflag_2]=useState('none');
  const [src,setsrc]=useState('');
@@ -44,13 +45,16 @@ const {res,dispatch}=props
    const add=()=>{
      if(res.id)
      {
+       if(arr.index<=arr.data.length)
+       {
     dispatch({type:'res',
     payload:{res:arr.data[++arr.index]
     }})
+  }
    }
   }
    const jian=()=>{
-     console.log(arr)
+
      if(res.id){
      if(arr.index>=0)
      {
@@ -125,7 +129,7 @@ const show=(date,t)=>{
         </section>
         <footer>
           <audio ref={au} autoPlay src={res.id? src:null} ></audio>
-         <article><img src={res.album? res.album.blurPicUrl:'http://img0.imgtn.bdimg.com/it/u=2228788569,294219945&fm=26&gp=0.jpg'} alt=""/></article>
+         <article><img src={res.al? res.al.picUrl:'http://img0.imgtn.bdimg.com/it/u=2228788569,294219945&fm=26&gp=0.jpg'} alt=""/></article>
          <article>
            <p>{res.name?res.name:'暂无'} <span className="left">{time}</span> <span>{playtime}</span> <span  onClick={jian} className="left2">{'<'}</span>  <span onClick={add} className="right">{'>'}</span> </p>
            <span onClick={()=>{
@@ -152,7 +156,7 @@ const show=(date,t)=>{
               return null
             }
              }} className={play}></span>
-           <span>列表</span>
+            <Icon type="ellipsis"/>
          </article>
         </footer>
         </Router>

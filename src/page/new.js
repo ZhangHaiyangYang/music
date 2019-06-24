@@ -3,7 +3,9 @@ import {connect} from 'react-redux'
 import {getnewdata} from '../actions/newlist'
 import {Icon} from 'antd-mobile'
 function New(props) {
-    const {list,dispatch}=props
+
+    const {list,dispatch,location}=props
+    console.log(location);
     const [date,setdata]=useState('');
  useEffect(()=>{
      var da=new Date();

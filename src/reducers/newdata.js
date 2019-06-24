@@ -1,5 +1,5 @@
 import {combineReducers} from 'redux'
-const newlist =(state={list:[],list2:[],list3:{},flag:'block',text:{},res:{}},actioe)=>{
+const newlist =(state={list:[],list2:[],list3:{},flag:'block',text:{},res:{}, searchdata:{}},actioe)=>{
     switch (actioe.type)
     {
         case 'newlist':
@@ -7,11 +7,13 @@ const newlist =(state={list:[],list2:[],list3:{},flag:'block',text:{},res:{}},ac
         case'flag':
         return {...state,...actioe.payload};
         case 'getdan':
-            return {...state,...actioe.payload};
-            case 'newmv':
+        return {...state,...actioe.payload};
+         case 'newmv':
           return {...state,...actioe.payload};
           case 'res':
         return {...state,...actioe.payload};
+        case 'search':
+            return {...state,...actioe.payload};
         default:
         return state
     }
